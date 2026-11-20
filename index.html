@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mentor — ИИ разбирает все звонки отдела продаж, а не 10 из 100</title>
+<meta name="description" content="Mentor анализирует каждый звонок, находит потерянных клиентов и говорит менеджеру, что сказать. Первый результат через 5 минут, 150 минут бесплатно.">
+<meta property="og:title" content="Вы слышите 10 звонков из 100. Mentor разбирает все">
+<meta property="og:description" content="Находит потерянных клиентов, даёт менеджеру готовую фразу и проверяет, что рекомендация выполнена. 150 минут бесплатно.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#EEF1F0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230F1B22'/%3E%3Crect x='6' y='6' width='6' height='6' fill='%23fff'/%3E%3Crect x='13' y='6' width='6' height='6' fill='%23fff'/%3E%3Crect x='20' y='6' width='6' height='6' fill='%23F2553C'/%3E%3Crect x='6' y='13' width='6' height='6' fill='%23fff'/%3E%3Crect x='13' y='13' width='6' height='6' fill='%23fff'/%3E%3Crect x='20' y='13' width='6' height='6' fill='%23fff'/%3E%3Crect x='6' y='20' width='6' height='6' fill='%23fff'/%3E%3Crect x='13' y='20' width='6' height='6' fill='%23fff'/%3E%3Crect x='20' y='20' width='6' height='6' fill='%23fff'/%3E%3C/svg%3E">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400..800&family=Unbounded:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="motion.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip" href="#main">К содержимому</a>
+
+<header class="header" id="header">
+  <div class="header__in">
+    <a class="logo" href="#top" aria-label="Mentor, на главную">
+      <span class="logo__mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="r"></i><i></i></span>
+      <span class="logo__word">Mentor</span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Разделы">
+      <a href="#how" data-roll>Как работает</a>
+      <a href="#diff" data-roll>Отличия</a>
+      <a href="#pricing" data-roll>Тарифы</a>
+      <a href="#faq" data-roll>Вопросы</a>
+      <a href="#cta" data-roll>Контакты</a>
+    </nav>
+    <a class="btn btn--sm" href="#cta" data-magnetic><span>150 минут бесплатно</span></a>
+    <button class="burger" id="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="nav"><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- HERO: сетка из 100 звонков работает на глазах -->
+<section class="hero" id="top">
+  <div class="hero__text">
+    <h1 class="hero__title" data-split>Вы слышите 10 звонков из 100</h1>
+    <p class="hero__lead">Mentor разбирает остальные 90: находит потерянных клиентов и подсказывает менеджеру, что сказать. Первый результат — через 5 минут после регистрации.</p>
+    <div class="hero__actions">
+      <a class="btn" href="https://app.salesmentor.ru/" data-magnetic><span>150 минут бесплатно</span></a>
+      <a class="btn btn--ghost" href="#pricing" data-magnetic><span>Посмотреть тарифы</span></a>
+    </div>
+    <p class="hero__note">Данные обезличиваются по 152-ФЗ. Подключение за пять минут, CRM не нужна.</p>
+  </div>
+
+  <div class="stage" id="heroStage" data-ui>
+    <div class="stage__top">
+      <div class="seg" role="tablist" aria-label="Режим" >
+        <button type="button" role="tab" class="seg__b is-on" data-mode="now" aria-selected="true">Как сейчас</button>
+        <button type="button" role="tab" class="seg__b" data-mode="mentor" aria-selected="false">С Mentor</button>
+      </div>
+      <p class="stage__count" id="heroCount" aria-live="polite"></p>
+    </div>
+    <div class="calls" id="heroCalls" role="group" aria-label="100 звонков отдела продаж за неделю"></div>
+    <div class="call-card" id="heroCard" aria-live="polite">
+      <p class="call-card__h">Нажмите на любой звонок</p>
+      <p class="call-card__t">Посмотрите, что о нём известно сейчас и что видит Mentor.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Цифры продукта -->
+<section class="nums" aria-label="Результаты">
+  <div class="nums__in" data-stagger>
+    <div class="num"><b data-count="100" data-suffix="%">100%</b><span>звонков разобрано за вас</span></div>
+    <div class="num"><b data-count="35" data-prefix="+" data-suffix="%">+35%</b><span>конверсия в оплату</span></div>
+    <div class="num"><b data-count="30" data-suffix=" ч">30 ч</b><span>в неделю возвращаются руководителю</span></div>
+    <div class="num"><b data-count="5" data-suffix=" мин">5 мин</b><span>до первого результата после регистрации</span></div>
+  </div>
+</section>
+
+<!-- Потери -->
+<section class="loss" id="loss">
+  <div class="wrap">
+    <h2 class="h2" data-reveal>Деньги теряются там, куда вы не успеваете посмотреть</h2>
+    <ul class="loss__list" data-stagger>
+      <li><b class="big"><span data-scramble>10 из 100</span></b><span>Столько звонков ваш руководитель отдела продаж реально успевает прослушать.</span></li>
+      <li><b class="big"><span data-scramble>150 000 ₽</span></b><span>В месяц в среднем не дожимает отдел продаж из двух человек.</span></li>
+      <li><b class="big"><span data-scramble>+15%</span></b><span>Дорожает заявка каждые полгода, а конверсия не растёт.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- СЦЕНА: четыре шага на сетке звонков -->
+<section class="pin" id="how" aria-labelledby="howTitle">
+  <div class="pin__sticky">
+    <div class="pin__left">
+      <h2 class="h2 h2--sm" id="howTitle">От звонка до сделки — четыре шага</h2>
+      <ol class="steps" id="steps">
+        <li class="step is-on"><b>Загрузите записи звонков</b><span>Файлами или через CRM и телефонию. Регистрация и первый разбор — за пять минут.</span></li>
+        <li class="step"><b>Mentor разбирает все звонки</b><span>Каждый звонок, с учётом всех прошлых разговоров с этим клиентом.</span></li>
+        <li class="step"><b>Менеджер получает план</b><span>Причина потери и готовая фраза прямой речью, как продать этому клиенту.</span></li>
+        <li class="step"><b>Mentor проверяет выполнение</b><span>В следующем звонке видит, сделана ли рекомендация, и ведёт сделку дальше.</span></li>
+      </ol>
+      <div class="pbar" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    </div>
+    <div class="pin__right" data-ui>
+      <div class="calls calls--big" id="sceneCalls" role="img" aria-label="Сетка из 100 звонков: сначала загружаются, затем разбираются, потерянные клиенты подсвечиваются, затем рекомендации выполняются"></div>
+      <p class="pin__cap" id="sceneCap" aria-live="polite"></p>
+    </div>
+  </div>
+</section>
+
+<!-- Что видит руководитель / что настроим -->
+<section class="feat" id="features">
+  <div class="wrap">
+    <h2 class="h2" data-reveal>Вы управляете цифрами, а не контролируете отдел</h2>
+    <div class="feat__cols">
+      <div class="feat__col" data-stagger>
+        <h3>Что видит руководитель</h3>
+        <ul>
+          <li>Все звонки отдела и типовые ошибки в диалогах на одном экране</li>
+          <li>Картина по отделу без планёрок и отчётов</li>
+          <li>Рекомендации по отделу и по каждому менеджеру</li>
+          <li>Почему клиенты не покупают: возражения, сомнения, с кем сравнивают</li>
+          <li>На каком этапе срывается сделка и сколько сделок теряется на звонках</li>
+          <li>Экспорт отчёта в PDF за 60 секунд</li>
+        </ul>
+      </div>
+      <div class="feat__col feat__col--b" data-stagger>
+        <h3>Настроим под ваш отдел бесплатно, в день обращения</h3>
+        <ul>
+          <li>Проверка, что менеджеры следуют вашему скрипту и чек-листу</li>
+          <li>Заполнение карточки сделки в CRM</li>
+          <li>Уведомления в Telegram</li>
+          <li>Ответы ИИ на ваши вопросы по звонкам</li>
+          <li>Письмо клиенту после звонка</li>
+          <li>Прогноз вероятности сделки</li>
+          <li>Ваши словари и стоп-слова</li>
+          <li>Анализ переписок в мессенджерах и почте</li>
+        </ul>
+        <a class="btn btn--ink" href="#cta" data-magnetic><span>Написать, что нужно</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Отличия -->
+<section class="diff" id="diff">
+  <div class="wrap">
+    <h2 class="h2" data-reveal>Чем Mentor отличается от обычной речевой аналитики</h2>
+    <div class="table-wrap" data-reveal>
+      <table class="cmp">
+        <caption class="sr">Сравнение Mentor с обычным сервисом речевой аналитики</caption>
+        <thead><tr><th scope="col"></th><th scope="col">Обычный сервис</th><th scope="col" class="cmp__m">Mentor</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Разбор</th><td>Процент выполнения скрипта и оценка</td><td class="cmp__m">Конкретные причины потерь и что исправить</td></tr>
+          <tr><th scope="row">Возражения</th><td>Отмечает, что возражение было</td><td class="cmp__m">Находит и даёт ответ на каждое</td></tr>
+          <tr><th scope="row">Рекомендации</th><td>Отмечает ошибку</td><td class="cmp__m">Готовая фраза прямой речью, как продать клиенту</td></tr>
+          <tr><th scope="row">Память</th><td>Каждый звонок отдельно</td><td class="cmp__m">Помнит весь диалог: разбирает звонок с учётом всех прошлых</td></tr>
+          <tr><th scope="row">Обучение</th><td>Нет</td><td class="cmp__m">На лучших звонках компании и 120 психологических принципах продаж</td></tr>
+          <tr><th scope="row">Запуск</th><td>Около 2 недель</td><td class="cmp__m">5 минут после регистрации</td></tr>
+          <tr><th scope="row">Оплата</th><td>Весь пакет функций</td><td class="cmp__m">Платите только за нужные функции</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ТАРИФЫ: калькулятор -->
+<section class="price" id="pricing">
+  <div class="wrap">
+    <h2 class="h2" data-reveal>Платите за минуты и только за нужные функции</h2>
+    <p class="lead" data-reveal>Выберите объём анализа, затем уберите функции, которыми не пользуетесь: цена минуты пересчитается.</p>
+
+    <div class="calc" id="calc" data-ui>
+      <div class="calc__left">
+        <fieldset class="tiers">
+          <legend>Минут анализа в месяц</legend>
+          <div class="tiers__row" id="tiers" ></div>
+          <p class="tiers__cap" id="tierCap" aria-live="polite"></p>
+        </fieldset>
+        <div class="fns" id="fns"></div>
+      </div>
+      <div class="calc__right">
+        <div class="bar" id="bar" aria-hidden="true"></div>
+        <p class="calc__pm"><b id="pm">5</b><span> ₽ за минуту</span></p>
+        <p class="calc__call" id="callPrice"></p>
+        <p class="calc__sum" id="sum"></p>
+        <p class="calc__pack" id="pack"></p>
+        <a class="btn" id="calcCta" href="#cta" data-magnetic><span>Оставить заявку с этим тарифом</span></a>
+        <p class="calc__free">150 минут бесплатно после регистрации</p>
+      </div>
+    </div>
+    <p class="fine">Цена со всеми функциями. Менеджер на линии — 40 минут разговоров в день, звонок — около 2 минут.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="wrap faq__grid">
+    <h2 class="h2" data-reveal>Частые вопросы руководителей</h2>
+    <div class="faq__list" id="faqList" data-stagger>
+      <details><summary>Куда попадают записи звонков? Это безопасно?</summary><p>Безопасно: мы оператор персональных данных по 152-ФЗ, записи обрабатываются на российских серверах, а нейросетям уходят только обезличенные фрагменты. Доступ к записям есть только у вас и вашей команды.</p></details>
+      <details><summary>Как Mentor сэкономит моё время?</summary><p>Слушать звонки больше не нужно: Mentor сам разбирает каждый звонок и даёт менеджерам рекомендации. Вам остаётся минута в неделю на аналитику отдела и 15 минут на решение.</p></details>
+      <details><summary>Можно ли собрать такой же продукт самому, например в Claude Code или ChatGPT?</summary><p>Можно, но понадобятся разработчик и руководитель продаж в штате, свои серверы и оплата нейросетей каждый месяц. Mentor уже обучен на звонках многих компаний, работает по 120 страницам правил продаж и обновляется нашей командой, поэтому пользоваться готовым намного дешевле.</p></details>
+      <details><summary>Как Mentor увеличит прибыль отдела продаж?</summary><p>Mentor находит потерянных клиентов, показывает менеджеру ошибку с готовой фразой и проверяет, что рекомендация выполнена. Ошибок меньше, и с тех же заявок больше оплат.</p></details>
+      <details><summary>Заявки дорожают, а конверсия не растёт. Чем поможет Mentor?</summary><p>Mentor показывает, где теряются клиенты и какие ошибки роняют конверсию. Вы сразу видите, на какую точку давить.</p></details>
+      <details><summary>Как быстро можно начать?</summary><p>За пять минут: зарегистрируйтесь и загрузите записи звонков, разбор появится через несколько минут.</p></details>
+      <details><summary>Нужна ли интеграция с CRM или телефонией?</summary><p>Не обязательно: записи можно загружать файлами. Если нужно, подключим CRM или телефонию, и разбор будет попадать в карточку сделки.</p></details>
+      <details><summary>Как найти клиентов, которых менеджеры уже потеряли?</summary><p>Mentor помечает звонки, где клиент ушёл, и предлагает, как вернуть сделку. Рекомендация сразу уходит менеджеру.</p></details>
+      <details><summary>Поможет ли Mentor обучать новых менеджеров?</summary><p>Да. После каждого разговора новичок видит, где ошибся и что сказать клиенту в следующий раз, и учится на своих реальных сделках.</p></details>
+      <details><summary>Менеджеры не выполняют мои рекомендации. Как это проверить?</summary><p>Mentor проверяет это сам: в следующем звонке с тем же клиентом он видит, выполнена ли рекомендация, и ведёт сделку дальше. Проверять каждого вручную больше не нужно.</p></details>
+      <details><summary>Можно ли проверять звонки по нашему скрипту и чек-листу?</summary><p>Да. Ваш скрипт и чек-лист настроим бесплатно в день обращения.</p></details>
+      <details><summary>Как быстро появляется разбор звонка?</summary><p>Обычно через несколько минут после загрузки, для очень длинных записей до 10 минут.</p></details>
+      <details><summary>Что если менеджер выполнил рекомендацию, а клиент всё равно не купил?</summary><p>Mentor анализирует следующий звонок, ищет новую причину отказа и предлагает другой путь к сделке. Сделка не бросается после первого «нет».</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="cta">
+  <div class="wrap cta__grid">
+    <div class="cta__text">
+      <h2 class="h2" data-reveal>Верните потерянных клиентов уже сегодня</h2>
+      <p class="lead">150 минут бесплатно. Оставьте контакт, и мы поможем подключить Mentor, или сразу зарегистрируйтесь в кабинете.</p>
+      <a class="btn btn--ink" href="https://app.salesmentor.ru/" data-magnetic><span>Войти или зарегистрироваться</span></a>
+      <ul class="contacts">
+        <li><span>Телефон</span><a href="tel:+79940259174">+7 994 025-91-74</a></li>
+        <li><span>Telegram</span><a href="https://t.me/vyacheslav2511" rel="noopener" target="_blank">@vyacheslav2511</a></li>
+        <li><span>WhatsApp</span><a href="https://wa.me/79922081011" rel="noopener" target="_blank">+7 992 208-10-11</a></li>
+        <li><span>MAX</span><a href="https://max.ru/u/f9LHodD0cOJcleQ60k2Rc0WBcZTU0XZn5-ajIy7HxKxKIftbMNhWI2uUhPE" rel="noopener" target="_blank">Написать в MAX</a></li>
+      </ul>
+    </div>
+    <form class="form" id="leadForm" novalidate>
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+      <input type="hidden" name="tariff" id="tariffField">
+      <label class="field"><span>Имя*</span><input type="text" name="name" autocomplete="given-name" required></label>
+      <label class="field"><span>Телефон или Telegram*</span><input type="text" name="phone" autocomplete="tel" inputmode="tel" required></label>
+      <label class="field"><span>Почта</span><input type="email" name="email" autocomplete="email"></label>
+      <label class="field"><span>Компания</span><input type="text" name="company" autocomplete="organization"></label>
+      <label class="field"><span>Комментарий</span><textarea name="comment" rows="3"></textarea></label>
+      <label class="check"><input type="checkbox" name="consent" required><span>Даю согласие на обработку персональных данных и ознакомлен(а) с <a href="https://salesmentor.ru/policy.html" target="_blank" rel="noopener">политикой</a> и <a href="https://salesmentor.ru/consent.html" target="_blank" rel="noopener">согласием</a>*</span></label>
+      <button class="btn btn--ink btn--wide" type="submit" data-magnetic><span>Оставить заявку</span></button>
+      <p class="form__note" id="formNote" role="status"></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <p class="foot__word" aria-hidden="true">Mentor</p>
+  <div class="foot__in">
+    <p>ИИ-разбор звонков отдела продаж. Сайт сервиса: <a href="https://salesmentor.ru/" rel="noopener">salesmentor.ru</a></p>
+    <p><a href="https://salesmentor.ru/policy.html" rel="noopener">Политика конфиденциальности</a> · <a href="https://salesmentor.ru/consent.html" rel="noopener">Согласие</a></p>
+    <p>© <span id="year">2026</span> Mentor</p>
+  </div>
+</footer>
+
+<script src="motion.js" defer></script>
+<script src="script.js" defer></script>
+</body>
+</html>
