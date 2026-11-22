@@ -32,7 +32,8 @@ const LEAD_ENDPOINT = 'https://lead-relay.leestygpt.workers.dev/lead/PPV9TUT355'
   if (title) {
     const words = title.textContent.trim().split(/\s+/);
     title.setAttribute('aria-label', words.join(' '));
-    title.innerHTML = words.map((w, i) => `<span class="w" aria-hidden="true"><span style="--i:${i}">${w}</span></span>`).join(' ');
+    const hl = (title.dataset.hl || '').split(',').map(Number);
+    title.innerHTML = words.map((w, i) => `<span class="w${hl.includes(i) ? ' hl' : ''}" aria-hidden="true"><span style="--i:${i}">${w}</span></span>`).join(' ');
   }
 
   /* ---------- сетка из 100 звонков ---------- */
@@ -205,13 +206,13 @@ const LEAD_ENDPOINT = 'https://lead-relay.leestygpt.workers.dev/lead/PPV9TUT355'
     { min: 13000, price: 59999, rates: [1.99, .71, .14, .18, .07, .11, .35, 1.07], h: '≈ 217 часов разговоров', c: '≈ 6 500 звонков', m: '≈ 16 менеджеров на линии' },
     { min: 30000, price: 119999, rates: [1.72, .62, .12, .16, .06, .09, .31, .92], h: '≈ 500 часов разговоров', c: '≈ 15 000 звонков', m: '≈ 36 менеджеров на линии' }
   ];
-  const COL = ['#0F1B22', '#2E3F48', '#4A5C65', '#687B84', '#889BA3', '#A9B8BE', '#C5D0D4', '#F2553C'];
+  const COL = ['#1F1F1D', '#47443C', '#6E6B63', '#9A968A', '#C9C5B6', '#E7CB96', '#F7C069', '#E0A63C'];
   const calc = $('#calc');
   if (calc) {
     const tiersEl = $('#tiers'), fnsEl = $('#fns'), bar = $('#bar');
     let ti = 1; const on = FN.map(() => true);
 
-    tiersEl.innerHTML = TIERS.map((t, i) => `<button type="button" class="tier" data-i="${i}" aria-pressed="false">${fmt(t.min)}<small> мин</small></button>`).join('');
+    tiersEl.innerHTML = TIERS.map((t, i) => `<button type="button" class="tier${t.name ? ' is-best' : ''}" data-i="${i}" aria-pressed="false">${t.name ? '<span class="tier__badge">' + t.name + '</span>' : ''}<b class="tier__price"></b><span class="tier__pm"></span><span class="tier__min"><span>Включено минут</span><b>${fmt(t.min)}</b></span><span class="tier__f">${t.h}</span><span class="tier__f">${t.c}</span><span class="tier__f">${t.m}</span><span class="tier__f">Аналитика бесплатно</span><span class="tier__pick"><span>Выбрать тариф</span></span></button>`).join('');
     fnsEl.innerHTML = FN.map((f, i) => `<label class="fn"><input type="checkbox" data-i="${i}" checked ${f.lock ? 'disabled' : ''}><span class="fn__sw"></span><span class="fn__t"><b>${f.n}</b><span>${f.d}</span></span><span class="fn__p"></span></label>`).join('')
       + `<div class="fn" style="cursor:default"><span class="fn__sw" style="background:var(--ink)"></span><span class="fn__t"><b>Аналитика отдела</b><span>Полная аналитика отдела, включая ошибки менеджеров. Включена всегда.</span></span><span class="fn__p">бесплатно</span></div>`;
     bar.innerHTML = FN.map((f, i) => `<i style="background:${COL[i]}"></i>`).join('');
@@ -222,8 +223,14 @@ const LEAD_ENDPOINT = 'https://lead-relay.leestygpt.workers.dev/lead/PPV9TUT355'
       let pm = 0; t.rates.forEach((r, i) => { if (on[i]) pm += r; });
       pm = Math.round(pm * 100) / 100;
       const all = on.every(Boolean), off = on.filter(v => !v).length;
-      $$('.tier', tiersEl).forEach((b, i) => { b.classList.toggle('is-on', i === ti); b.setAttribute('aria-pressed', i === ti); });
-      $('#tierCap').textContent = t.h + ' · ' + t.c + ' · ' + t.m;
+      $$('.tier', tiersEl).forEach((b, i) => {
+        const tt = TIERS[i];
+        let p = 0; tt.rates.forEach((r, k) => { if (on[k]) p += r; });
+        p = Math.round(p * 100) / 100;
+        b.classList.toggle('is-on', i === ti); b.setAttribute('aria-pressed', i === ti);
+        $('.tier__price', b).textContent = (all ? '' : '≈ ') + fmt(all ? tt.price : p * tt.min) + ' ₽';
+        $('.tier__pm', b).textContent = fmt2(p) + ' ₽ за минуту';
+      });
       rows.forEach((row, i) => {
         row.classList.toggle('is-off', !on[i]);
         $('.fn__p', row).textContent = fmt2(t.rates[i]) + ' ₽';
