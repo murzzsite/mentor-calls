@@ -3,11 +3,6 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mentor — ИИ разбирает все звонки отдела продаж, а не 10 из 100</title>
-<meta name="description" content="Mentor анализирует каждый звонок, находит потерянных клиентов и говорит менеджеру, что сказать. Первый результат через 5 минут, 150 минут бесплатно.">
-<meta property="og:title" content="Вы слышите 10 звонков из 100. Mentor разбирает все">
-<meta property="og:description" content="Находит потерянных клиентов, даёт менеджеру готовую фразу и проверяет, что рекомендация выполнена. 150 минут бесплатно.">
-<meta property="og:type" content="website">
 <meta name="theme-color" content="#F5F4EF">
 <link rel="icon" type="image/png" href="img/logo-mark.png">
 <script>document.documentElement.classList.add('js')</script>
@@ -16,6 +11,20 @@
 <link rel="stylesheet" href="fonts/fonts.css">
 <link rel="stylesheet" href="motion.css">
 <link rel="stylesheet" href="styles.css">
+<title>Mentor: ИИ-разбор всех звонков отдела продаж</title>
+<meta name="description" content="Mentor анализирует каждый звонок, находит потерянных клиентов и говорит менеджеру, что сказать. Первый результат через 5 минут, 150 минут бесплатно.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://murzzsite.github.io/mentor-calls/">
+<meta property="og:title" content="Вы слышите 10 звонков из 100. Mentor разбирает все">
+<meta property="og:description" content="Находит потерянных клиентов, даёт менеджеру готовую фразу и проверяет, что рекомендация выполнена. 150 минут бесплатно.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://murzzsite.github.io/mentor-calls/">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Mentor">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Вы слышите 10 звонков из 100. Mentor разбирает все">
+<meta name="twitter:description" content="Находит потерянных клиентов, даёт менеджеру готовую фразу и проверяет, что рекомендация выполнена. 150 минут бесплатно.">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://murzzsite.github.io/mentor-calls/#org","name":"Mentor","url":"https://murzzsite.github.io/mentor-calls/","logo":"https://murzzsite.github.io/mentor-calls/img/logo-mark.png","description":"ИИ-разбор звонков отдела продаж: находит потерянных клиентов и подсказывает менеджеру, что сказать.","telephone":"+7 994 025-91-74","contactPoint":{"@type":"ContactPoint","telephone":"+7 994 025-91-74","contactType":"sales","availableLanguage":"ru"},"sameAs":["https://salesmentor.ru/","https://t.me/vyacheslav2511"]},{"@type":"WebSite","@id":"https://murzzsite.github.io/mentor-calls/#site","url":"https://murzzsite.github.io/mentor-calls/","name":"Mentor","inLanguage":"ru-RU","publisher":{"@id":"https://murzzsite.github.io/mentor-calls/#org"}}]}</script>
 </head>
 <body>
 
@@ -271,7 +280,7 @@
       <label class="field"><span>Почта</span><input type="email" name="email" autocomplete="email"></label>
       <label class="field"><span>Компания</span><input type="text" name="company" autocomplete="organization"></label>
       <label class="field"><span>Комментарий</span><textarea name="comment" rows="3"></textarea></label>
-      <label class="check"><input type="checkbox" name="consent" required><span>Даю согласие на обработку персональных данных и ознакомлен(а) с <a href="https://salesmentor.ru/policy.html" target="_blank" rel="noopener">политикой</a> и <a href="https://salesmentor.ru/consent.html" target="_blank" rel="noopener">согласием</a>*</span></label>
+      <label class="check"><input type="checkbox" name="consent" required><span>Даю согласие на обработку персональных данных и ознакомлен(а) с <a href="privacy.html">политикой</a> и <a href="https://salesmentor.ru/consent.html" target="_blank" rel="noopener">согласием</a>*</span></label>
       <button class="btn btn--gold btn--lg btn--block" type="submit"><span>Оставить заявку</span></button>
       <p class="form__note" id="formNote" role="status"></p>
     </form>
@@ -284,12 +293,13 @@
   <div class="foot__in">
     <a class="logo" href="#top" aria-label="Mentor, наверх"><img class="logo__mark" src="img/logo-mark.png" width="34" height="34" alt=""><span class="logo__word">Mentor</span></a>
     <p>ИИ-разбор звонков отдела продаж. Сайт сервиса: <a href="https://salesmentor.ru/" rel="noopener">salesmentor.ru</a></p>
-    <p><a href="https://salesmentor.ru/policy.html" rel="noopener">Политика конфиденциальности</a> · <a href="https://salesmentor.ru/consent.html" rel="noopener">Согласие</a></p>
+    <p><a href="privacy.html">Политика конфиденциальности</a> · <a href="https://salesmentor.ru/consent.html" rel="noopener">Согласие</a></p>
     <p>© <span id="year">2026</span> Mentor</p>
   </div>
 </footer>
 
 <script src="motion.js" defer></script>
 <script src="script.js" defer></script>
+<script src="cookie.js" defer></script>
 </body>
 </html>
